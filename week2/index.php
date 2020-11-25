@@ -1,5 +1,8 @@
 <?php
     include('includes/musicInclude.php');
+
+    # to display the current time and date
+    $currentDateTime = date('d-m-y h:i');
 ?>
 
 <html>
@@ -9,6 +12,7 @@
 </head>
 
 <body>
+    <h4><?php echo $currentDateTime;?></h4>
     <h2>Albums</h2>
     <p>Continuation of the last assignment (1.3) with the albums. The new additions are:</p>
     <ul>
