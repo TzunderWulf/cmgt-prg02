@@ -31,8 +31,8 @@
         <th>Album</th>
         <th>Release year</th>
         <th>Number of tracks</th>
-        <th>Details</th>
-        <th>Edit</th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
