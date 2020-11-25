@@ -7,6 +7,7 @@ body {
     margin: auto auto;
     background-color: white;
     padding: 50px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 tr:nth-child(odd) {
