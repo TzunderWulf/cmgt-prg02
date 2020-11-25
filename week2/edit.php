@@ -19,7 +19,7 @@
 <body>
     <h2>Edit</h2>
 
-    <form action="assignment1.php" method="post">
+    <form action="index.php" method="post">
         <label for="artistName">Artist name: </label>
         <input type="text" name="artistName" id="artistName" value="<?php print_r($album['artistName']);?>"><br>
 
