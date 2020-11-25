@@ -21,6 +21,6 @@
     <p>The album was released in <?php print_r($album['releaseYear']);?> and has in total
         <?php print_r($album['tracksAmount']);?> songs in the album.</p>
 
-    <a href="assignment1.php">Back</a>
+    <a href="index.php">Back</a>
 </body>
 </html>
