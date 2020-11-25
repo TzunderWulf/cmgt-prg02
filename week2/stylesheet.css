@@ -60,3 +60,7 @@ input[type=submit]:hover, [type=reset]:hover {
     transition: all 0.4s ease-in-out 0.1s;
     background-color: #1aa3ff;
 }
+
+h4 {
+    text-align: right;
+}
