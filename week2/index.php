@@ -1,16 +1,15 @@
 <?php
     include('includes/musicInclude.php');
 
-    # to display the current time and date
     $currentDateTime = date('d-m-y h:i');
 ?>
 
-<html>
+<html lang="gb">
 <head>
     <title>Week 2</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
