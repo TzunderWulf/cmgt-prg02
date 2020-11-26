@@ -65,3 +65,7 @@ input[type=submit]:hover, [type=reset]:hover {
 h4 {
     text-align: right;
 }
+
+.error {
+    color: red;
+}
