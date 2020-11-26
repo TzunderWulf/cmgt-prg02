@@ -20,7 +20,7 @@
 <body>
     <h2>Edit</h2>
 
-    <form action="index.php" method="post">
+    <form action="editedAlbum.php" method="post">
         <label for="artistName">Artist name: </label>
         <input type="text" name="artistName" id="artistName" value="<?php print_r($album['artistName']);?>"><br>
 
@@ -36,5 +36,7 @@
 
         <input type="submit" name="submit">
     </form>
+
+    <a href="index.php">Back</a>
 </body>
 </html>
