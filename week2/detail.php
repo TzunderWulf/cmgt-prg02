@@ -20,8 +20,11 @@
 </head>
 <body>
     <h2><?php print_r($album['albumName']);?> by <?php print_r($album['artistName']);?></h2>
-    <p>The album was released in <?php print_r($album['releaseYear']);?> and has in total
-        <?php print_r($album['tracksAmount']);?> songs in the album.</p>
+
+    <ul>
+        <li>Amount of tracks: <?php print_r($album['tracksAmount']);?></li>
+        <li>Album was released in: <?php print_r($album['releaseYear']);?></li>
+    </ul>
 
     <a href="index.php">Back</a>
 </body>
