@@ -4,7 +4,7 @@
     $currentDateTime = date('d-m-y h:i');
 ?>
 
-<html lang="gb">
+<html lang="en">
 <head>
     <title>Week 2</title>
     <link rel="stylesheet" href="stylesheet.css">
