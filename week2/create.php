@@ -14,15 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $albumName = test_input($_POST["albumName"]);
     }
-    if (empty($_POST["realeaseYear"])) {
+    if (empty($_POST["releaseYear"])) {
         $releaseYearErr = "* Release year is required";
     } else {
-        $releaseYear = test_input($_POST["realeaseYear"]);
+        $releaseYear = test_input($_POST["releaseYear"]);
     }
-    if (empty($_POST["tracksAmount"])) {
+    if (empty($_POST["amountTracks"])) {
         $amountTracksErr = "* Amount of tracks is required";
     } else {
-        $amountTracks = test_input($_POST["tracksAmount"]);
+        $amountTracks = test_input($_POST["amountTracks"]);
     }
 }
 
@@ -43,28 +43,30 @@ function test_input($data) {
 </head>
 <body>
     <h2>Create</h2>
-    <h4>* is required.</h4>
+    <h3>* is required.</h3>
 
-    <form action="index.php" method="post">
-        <label for="artistName">Artist name: </label>
+    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+        <label for="artistName">Artist name*: </label>
         <input type="text" name="artistName" id="artistName"><br>
-        <?=$artistNameErr?><br>
+        <p class="error"><?=$artistNameErr?></p><br>
 
-        <label for="albumName">Album name: </label>
+        <label for="albumName">Album name*: </label>
         <input type="text" name="albumName" id="albumName"><br>
-        <?=$artistNameErr?><br>
+        <p class="error"><?=$artistNameErr?></p><br>
 
-        <label for="releaseYear">Release year: </label>
+        <label for="releaseYear">Release year*: </label>
         <input type="text" name="releaseYear" id="releaseYear"><br>
-        <?=$releaseYearErr?><br>
+        <p class="error"><?=$releaseYearErr?></p><br>
 
-        <label for="amountTracks">Amount of tracks in the album: </label>
+        <label for="amountTracks">Amount of tracks in the album*: </label>
         <input type="number" name="amountTracks" id="amountTracks"><br>
-        <?=$amountTracksErr?><br>
+        <p class="error"><?=$amountTracksErr?></p><br>
 
         <input type="submit" name="submit">
         <input type="reset" name="reset">
 
     </form>
+
+    <a href="index.php">Back</a>
 </body>
 </html>
