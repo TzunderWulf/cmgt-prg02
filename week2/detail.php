@@ -1,4 +1,5 @@
 <?php
+    # contains array of music
     include('includes/musicInclude.php');
 
     # to check if the url isn't empty (value)

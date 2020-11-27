@@ -1,5 +1,6 @@
 <?php
-include('includes/musicInclude.php');
+    # contains array of music
+    include('includes/musicInclude.php');
 ?>
 
 <html lang="en">
