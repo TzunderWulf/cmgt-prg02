@@ -1,10 +1,10 @@
 <?php
     include('includes/musicInclude.php');
 
-    # to check if the url isn't empty (value)
-    # not working as of now
+    # to check if the url isn't empty (value) or equal to 0
     if (!isset($_GET['index']) || empty($_GET['index'])) {
-        header("assignment1.php");
+        header('Location: index.php');
+        exit();
     }
 
     $indexNumber = $_GET['index'];
@@ -29,3 +29,4 @@
     <a href="index.php">Back</a>
 </body>
 </html>
+
