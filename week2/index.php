@@ -39,7 +39,7 @@
     <tbody>
     <?php foreach ($albums as $index => $album) { ?>
         <tr>
-            <td><?=$index + 1;?></td>
+            <td><?=$index;?></td>
             <td><?=$album['artistName'];?></td>
             <td><?=$album['albumName'];?></td>
             <td><?=$album['releaseYear'];?></td>
