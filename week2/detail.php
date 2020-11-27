@@ -1,7 +1,7 @@
 <?php
     include('includes/musicInclude.php');
 
-    # to check if the url isn't empty (value) or equal to 0
+    # to check if the url isn't empty (value)
     if (!isset($_GET['index']) || empty($_GET['index'])) {
         header('Location: index.php');
         exit();
