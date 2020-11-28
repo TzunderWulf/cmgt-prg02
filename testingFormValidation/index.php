@@ -30,10 +30,7 @@ if (isset($_POST['submit'])) {
     } else {
         $color = $_POST['color'];
     };
-    if (
-        !isset($_POST['languages']) || !is_array($_POST['languages']) ||
-        count($_POST['languages']) === 0
-    ) {
+    if (!isset($_POST['languages']) || !is_array($_POST['languages']) || count($_POST['languages']) == 0) {
         $validForm = false;
     } else {
         $languages = $_POST['languages'];
@@ -48,7 +45,7 @@ if (isset($_POST['submit'])) {
     };
 
 
-    // when the form is entirely vaid
+    // when the form is entirely valid
     if ($validForm) {
         printf(
             'Username: %s
