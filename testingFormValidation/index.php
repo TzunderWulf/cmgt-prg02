@@ -77,13 +77,18 @@ if (isset($_POST['submit'])) {
 <body>
     <form action="" method="post">
         <label for="name">Username: </label>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" value="<?php echo
+        htmlspecialchars($name, ENT_QUOTES);
+        ?>"><br>
+
         <label for="password">Password: </label>
         <input type="password" id="password" name="password"><br>
+
         <label for="gender">Gender: </label>
         <input type="radio" id="gender" name="gender" value="f">Female
         <input type="radio" id="gender" name="gender" value="m">Male
         <input type="radio" id="gender" name="gender" value="o">Other<br>
+
         <label for="color">Favorite color:</label>
         <select id="color" name="color">
             <option value="">Please select..</option>
@@ -91,14 +96,19 @@ if (isset($_POST['submit'])) {
             <option value="green">Green</option>
             <option value="blue">Blue</option>
         </select><br>
+
         <label for="languages">Languages spoken: </label>
         <select id="languages" name="languages[]" multiple><br>
             <option value="en">English</option>
             <option value="fr">French</option>
             <option value="it">Italian</option>
         </select><br>
+
         <label for="comments">Comments: </label><br>
-        <textarea id="comments" name="comments"></textarea><br>
+        <textarea id="comments" name="comments"><?php
+            echo htmlspecialchars($comments, ENT_QUOTES);
+        ?></textarea><br>
+
         <input type="checkbox" id="tc" name="tc" value="ok"><label for="tc">I accept the terms and conditions</label><br>
 
         <input type="submit" name="submit" value="Register">
