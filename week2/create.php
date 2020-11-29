@@ -43,6 +43,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
+// current date and time
+$currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
@@ -53,6 +55,7 @@ if (isset($_POST['submit'])) {
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h4><?php echo $currentDateTime;?></h4>
     <h2>Create</h2>
     <h3>* is required.</h3>
 

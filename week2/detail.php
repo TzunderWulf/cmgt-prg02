@@ -1,15 +1,18 @@
 <?php
-    # contains array of music
-    include('includes/musicInclude.php');
+// contains array of music
+include('includes/musicInclude.php');
 
-    # to check if the url isn't empty (value)
-    if (!isset($_GET['index']) || empty($_GET['index'])) {
-        header('Location: index.php');
-        exit();
-    }
+// to check if the url isn't empty (value)
+if (!isset($_GET['index']) || empty($_GET['index'])) {
+    header('Location: index.php');
+    exit();
+}
 
-    $indexNumber = $_GET['index'];
-    $album = $albums[$indexNumber];
+$indexNumber = $_GET['index'];
+$album = $albums[$indexNumber];
+
+// current date and time
+$currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
@@ -20,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h4><?php echo $currentDateTime;?></h4>
     <h2><?php print_r($album['albumName']);?> by <?php print_r($album['artistName']);?></h2>
 
     <ul>
