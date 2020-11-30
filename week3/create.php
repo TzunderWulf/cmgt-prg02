@@ -4,22 +4,22 @@ $artistName = $albumName = $releaseYear = $amountTracks = "";
 $artistNameErr = $albumNameErr = $releaseYearErr = $amountTracksErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["artistName"])) {
+    if ($_POST["artistName"] == '') {
         $artistNameErr = "* Artist name is required";
     } else {
         $artistName = test_input($_POST["artistName"]);
     }
-    if (empty($_POST["albumName"])) {
+    if ($_POST["albumName"] == '') {
         $albumNameErr = "* Album name is required";
     } else {
         $albumName = test_input($_POST["albumName"]);
     }
-    if (empty($_POST["releaseYear"])) {
+    if ($_POST["releaseYear"] == '') {
         $releaseYearErr = "* Release year is required";
     } else {
         $releaseYear = test_input($_POST["releaseYear"]);
     }
-    if (empty($_POST["amountTracks"])) {
+    if ($_POST["amountTracks"] == '') {
         $amountTracksErr = "* Amount of tracks is required";
     } else {
         $amountTracks = test_input($_POST["amountTracks"]);
