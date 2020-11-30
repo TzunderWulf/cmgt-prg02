@@ -1,5 +1,5 @@
 <?php
-    include('includes/musicInclude.php');
+    require_once('includes/musicInclude.php');
 
     $currentDateTime = date('d-m-y h:i');
 ?>

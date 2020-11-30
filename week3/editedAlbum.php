@@ -1,6 +1,6 @@
 <?php
     # contains array of music
-    include('includes/musicInclude.php');
+    require_once('includes/musicInclude.php');
 ?>
 
 <html lang="en">

@@ -1,36 +1,46 @@
 <?php
 # PHP validation
-$artistName = $albumName = $releaseYear = $amountTracks = "";
-$artistNameErr = $albumNameErr = $releaseYearErr = $amountTracksErr = "";
+// variables
+$artistName = '';
+$albumName = '';
+$releaseYear = '';
+$amountTracks = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ($_POST["artistName"] == '') {
-        $artistNameErr = "* Artist name is required";
-    } else {
-        $artistName = test_input($_POST["artistName"]);
-    }
-    if ($_POST["albumName"] == '') {
-        $albumNameErr = "* Album name is required";
-    } else {
-        $albumName = test_input($_POST["albumName"]);
-    }
-    if ($_POST["releaseYear"] == '') {
-        $releaseYearErr = "* Release year is required";
-    } else {
-        $releaseYear = test_input($_POST["releaseYear"]);
-    }
-    if ($_POST["amountTracks"] == '') {
-        $amountTracksErr = "* Amount of tracks is required";
-    } else {
-        $amountTracks = test_input($_POST["amountTracks"]);
-    }
-}
+// error messages
+$artistNameErr = "";
+$albumNameErr = "";
+$amountTracksErr = "";
+$releaseYearErr = "";
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+if (isset($_POST['submit'])) {
+    $validForm = true;
+    if (!isset($_POST['artistName']) || $_POST['artistName'] === ''){
+        $validForm = false;
+        $artistNameErr = "Artist name is required";
+    } else {
+        $artistName = $_POST['artistName'];
+    }
+    if (!isset($_POST['albumName']) || $_POST['albumName'] === ''){
+        $validForm = false;
+        $albumNameErr = "Album name is required";
+    } else {
+        $artistName = $_POST['albumName'];
+    }
+    if (!isset($_POST['releaseYear']) || $_POST['releaseYear'] === ''){
+        $validForm = false;
+        $releaseYearErr = "Release year is required";
+    } else {
+        $releaseYear = $_POST['releaseYear'];
+    }
+    if (!isset($_POST['amountTracks']) || !is_numeric($_POST['amountTracks'])){
+        $validForm = false;
+        $amountTracksErr = "Amount of tracks is required and has to be a number";
+    } else {
+        $amountTracks = $_POST['amountTracks'];
+    }
+    if ($validForm) {
+        header('Location: index.php');
+    }
 }
 ?>
 

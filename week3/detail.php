@@ -1,6 +1,6 @@
 <?php
     # contains array of music
-    include('includes/musicInclude.php');
+    require_once('includes/musicInclude.php');
 
     # to check if the url isn't empty (value)
     if (!isset($_GET['index']) || empty($_GET['index'])) {
