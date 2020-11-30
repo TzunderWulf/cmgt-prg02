@@ -1,37 +1,50 @@
 <?php
-# PHP validation
-$artistName = $albumName = $releaseYear = $amountTracks = "";
-$artistNameErr = $albumNameErr = $releaseYearErr = $amountTracksErr = "";
+// variables
+$artistName = '';
+$albumName = '';
+$releaseYear = '';
+$amountTracks = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["artistName"])) {
-        $artistNameErr = "* Artist name is required";
+// error messages
+$artistNameErr = "";
+$albumNameErr = "";
+$amountTracksErr = "";
+$releaseYearErr = "";
+
+// php validation
+if (isset($_POST['submit'])) {
+    $validForm = true;
+    if (!isset($_POST['artistName']) || $_POST['artistName'] === ''){
+        $validForm = false;
+        $artistNameErr = "Artist name is required";
     } else {
-        $artistName = test_input($_POST["artistName"]);
+        $artistName = $_POST['artistName'];
     }
-    if (empty($_POST["albumName"])) {
-        $albumNameErr = "* Album name is required";
+    if (!isset($_POST['albumName']) || $_POST['albumName'] === ''){
+        $validForm = false;
+        $albumNameErr = "Album name is required";
     } else {
-        $albumName = test_input($_POST["albumName"]);
+        $artistName = $_POST['albumName'];
     }
-    if (empty($_POST["releaseYear"])) {
-        $releaseYearErr = "* Release year is required";
+    if (!isset($_POST['releaseYear']) || $_POST['releaseYear'] === ''){
+        $validForm = false;
+        $releaseYearErr = "Release year is required";
     } else {
-        $releaseYear = test_input($_POST["releaseYear"]);
+        $releaseYear = $_POST['releaseYear'];
     }
-    if (empty($_POST["amountTracks"])) {
-        $amountTracksErr = "* Amount of tracks is required";
+    if (!isset($_POST['amountTracks']) || !is_numeric($_POST['amountTracks'])){
+        $validForm = false;
+        $amountTracksErr = "Amount of tracks is required and has to be a number";
     } else {
-        $amountTracks = test_input($_POST["amountTracks"]);
+        $amountTracks = $_POST['amountTracks'];
+    }
+    if ($validForm) {
+        header('Location: index.php');
     }
 }
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+// current date and time
+$currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
@@ -42,17 +55,18 @@ function test_input($data) {
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h4><?php echo $currentDateTime;?></h4>
     <h2>Create</h2>
     <h3>* is required.</h3>
 
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <form action="" method="post">
         <label for="artistName">Artist name*: </label>
         <input type="text" name="artistName" id="artistName"><br>
         <p class="error"><?=$artistNameErr?></p><br>
 
         <label for="albumName">Album name*: </label>
         <input type="text" name="albumName" id="albumName"><br>
-        <p class="error"><?=$artistNameErr?></p><br>
+        <p class="error"><?=$albumNameErr?></p><br>
 
         <label for="releaseYear">Release year*: </label>
         <input type="text" name="releaseYear" id="releaseYear"><br>
@@ -64,7 +78,6 @@ function test_input($data) {
 
         <input type="submit" name="submit">
         <input type="reset" name="reset">
-
     </form>
 
     <a href="index.php">Back</a>

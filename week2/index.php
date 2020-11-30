@@ -1,7 +1,7 @@
 <?php
     include('includes/musicInclude.php');
 
-    $currentDateTime = date('d-m-y h:i');
+    $currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
