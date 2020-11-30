@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <title>Edit</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/stylesheet.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -33,6 +33,9 @@
 
         <label for="amountTracks">Amount of tracks in the album: </label>
         <input type="number" name="amountTracks" id="amountTracks" value="<?php print_r($album['tracksAmount']);?>"><br>
+
+        <label for="amountTracks">Genre(s): </label>
+        <input type="text" name="genre" id="genre"><br>
 
 
         <input type="submit" name="submit">

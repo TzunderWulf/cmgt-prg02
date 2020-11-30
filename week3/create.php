@@ -37,7 +37,7 @@ function test_input($data) {
 <html lang="en">
 <head>
     <title>Create</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/stylesheet.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -61,6 +61,9 @@ function test_input($data) {
         <label for="amountTracks">Amount of tracks in the album*: </label>
         <input type="number" name="amountTracks" id="amountTracks"><br>
         <p class="error"><?=$amountTracksErr?></p><br>
+
+        <label for="genre">Genre(s): </label>
+        <input type="text" name="genre" id="genre"><br>
 
         <input type="submit" name="submit">
         <input type="reset" name="reset">

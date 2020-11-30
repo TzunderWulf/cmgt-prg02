@@ -31,9 +31,7 @@ if (isset($_POST['submit'])) {
         $color = $_POST['color'];
     };
     if (
-        !isset($_POST['languages']) || !is_array($_POST['languages']) ||
-        count($_POST['languages']) === 0
-    ) {
+        !isset($_POST['languages']) || !is_array($_POST['languages'])) {
         $validForm = false;
     } else {
         $languages = $_POST['languages'];
