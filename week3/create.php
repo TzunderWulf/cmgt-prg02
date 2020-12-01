@@ -1,5 +1,5 @@
 <?php
-# PHP validation
+// PHP validation
 // variables
 $artistName = '';
 $albumName = '';
@@ -42,6 +42,8 @@ if (isset($_POST['submit'])) {
         header('Location: index.php');
     }
 }
+
+$currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
@@ -52,6 +54,7 @@ if (isset($_POST['submit'])) {
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h4><?php echo $currentDateTime;?></h4>
     <h2>Create</h2>
     <h3>* is required.</h3>
 

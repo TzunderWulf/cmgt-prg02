@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    width: 800px;
+    width: 900px;
     margin: auto auto;
     background-color: white;
     padding: 50px;
@@ -24,9 +24,9 @@ th, td {
     padding: 5px;
 }
 
-    th {
-        background-color: white;
-    }
+th {
+    background-color: white;
+}
 
 #create {
     padding: 15px;
@@ -46,7 +46,7 @@ label {
     font-size: 14px;
 }
 
-input[type=submit],[type=reset] {
+input[type=submit], [type=reset] {
     background-color: #002e4d;
     color: white;
     padding: 12px 20px;
@@ -68,4 +68,14 @@ h4 {
 
 .error {
     color: red;
+}
+
+.detailImage {
+    width: 300px;
+    height: 300px;
+}
+
+td.image img {
+    width: 100px;
+    height: 100px;
 }

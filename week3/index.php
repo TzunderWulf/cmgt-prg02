@@ -1,7 +1,22 @@
 <?php
     require_once('includes/musicInclude.php');
+    require_once('includes/connect.php');
 
-    $currentDateTime = date('d-m-y h:i');
+    // get the result set from the database with query
+    $query = "SELECT * FROM albums";
+    $result = mysqli_query($db, $query);
+
+    $albums = [];
+    // loop trough with while
+    while($row = mysqli_fetch_assoc($result)) {
+        $albums[] = $row;
+        break;
+    }
+
+    // close connection
+    $db->close();
+
+    $currentDateTime = date('d-m-y h:i A');
 ?>
 
 <html lang="en">
@@ -18,14 +33,17 @@
     <p>Continuation of the last two assignment with the albums. The new additions are:</p>
     <ul>
         <li>Database</li>
+        <li>An alternative view</li>
     </ul>
 
-<a id="create" href="create.php">Create a new album</a>
+    <a href="alternativeIndex.php">Alternative</a>
+    <a id="create" href="create.php">Create a new album</a>
 
 <table>
     <thead>
     <tr>
         <th>#</th>
+        <th>Albumcover</th>
         <th>Artist</th>
         <th>Album</th>
         <th>Release year</th>
@@ -36,16 +54,18 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($albums as $index => $album) { ?>
+    <?php foreach ($result as $row) { ?>
         <tr>
-            <td><?=$index;?></td>
-            <td><?=$album['artistName'];?></td>
-            <td><?=$album['albumName'];?></td>
-            <td><?=$album['releaseYear'];?></td>
-            <td><?=$album['tracksAmount'];?></td>
-            <td><?=$album[''];?></td>
-            <td><a href="detail.php?index=<?=$index?>">Details</a></td>
-            <td><a href="edit.php?index=<?=$index?>">Edit</a></td>
+            <td><?php print_r($row['id']);?></td>
+            <td class="image"><img src="data:image/png;base64,<?=base64_encode($row['albumCover']);?>"
+                 alt="albumCover"></td>
+            <td><?php print_r($row['artist']);?></td>
+            <td><?php print_r($row['albumName']);?></td>
+            <td><?php print_r($row['year']);?></td>
+            <td><?php print_r($row['tracks']);?></td>
+            <td><?php print_r($row['genre']);?></td>
+            <td><a href="detail.php?index=<?=$row['id']?>">Details</a></td>
+            <td><a href="edit.php?index=<?=$row['id']?>">Edit</a></td>
         </tr>
     <?php } ?>
     </tbody>
