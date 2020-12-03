@@ -1,0 +1,51 @@
+html {
+    background-color: #9dbabe;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+album {
+    width: 200px;
+    height: 230px;
+    margin: 10px;
+    float: left;
+}
+
+.albums {
+    width: 660px;
+    margin: 20px auto 0;
+}
+
+h4 {
+    text-align: right;
+}
+
+.cover img {
+    width: 200px;
+    height: 200px;
+}
+
+.links a {
+    display: inline-block;
+    width: 200px;
+    clear: both;
+    text-align: center;
+}
+
+main {
+    width: 900px;
+    margin: auto auto;
+    background-color: white;
+    padding: 50px;
+}
+
+#clear {
+    clear: both;
+}
