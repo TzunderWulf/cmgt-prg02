@@ -25,6 +25,8 @@ $currentDateTime = date('d-m-y h:i A');
     <title>Music Collection</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="stylesheets/alternativeStylesheet.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 <main>
