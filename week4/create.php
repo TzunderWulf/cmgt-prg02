@@ -1,10 +1,12 @@
 <?php
+require 'includes/connect.php';
 // PHP validation
 // variables
 $artistName = '';
 $albumName = '';
 $releaseYear = '';
 $amountTracks = '';
+$genre = '';
 
 // error messages
 $artistNameErr = "";
@@ -18,29 +20,44 @@ if (isset($_POST['submit'])) {
         $validForm = false;
         $artistNameErr = "Artist name is required";
     } else {
-        $artistName = $_POST['artistName'];
+        $artistName = htmlspecialchars($_POST['artistName']);
     }
     if (!isset($_POST['albumName']) || $_POST['albumName'] === ''){
         $validForm = false;
         $albumNameErr = "Album name is required";
     } else {
-        $artistName = $_POST['albumName'];
+        $artistName = htmlspecialchars($_POST['albumName']);
     }
     if (!isset($_POST['releaseYear']) || $_POST['releaseYear'] === ''){
         $validForm = false;
         $releaseYearErr = "Release year is required";
     } else {
-        $releaseYear = $_POST['releaseYear'];
+        $releaseYear = htmlspecialchars($_POST['releaseYear']);
     }
     if (!isset($_POST['amountTracks']) || !is_numeric($_POST['amountTracks'])){
         $validForm = false;
         $amountTracksErr = "Amount of tracks is required and has to be a number";
     } else {
-        $amountTracks = $_POST['amountTracks'];
+        $amountTracks = htmlspecialchars($_POST['amountTracks']);
     }
     if ($validForm) {
         header('Location: index.php');
     }
+    $genre = $_POST['genre'];
+
+    if ($validForm) {
+        // header('Location: index.php');
+        $sql = sprintf("INSERT INTO albums (albumName, artist, year, tracks, genre) VALUES (
+            '%s', '%s', '%s', '%s', '%s')",
+            $db->real_escape_string($artistName),
+            $db->real_escape_string($albumName),
+            $db->real_escape_string($releaseYear),
+            $db->real_escape_string($amountTracks),
+            $db->real_escape_string($genre)
+        );
+        $db->query($sql);
+        $db->close();
+}
 }
 
 $currentDateTime = date('d-m-y h:i A');
@@ -58,7 +75,7 @@ $currentDateTime = date('d-m-y h:i A');
     <h2>Create</h2>
     <h3>* is required.</h3>
 
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <form action="" method="post">
         <label for="artistName">Artist name*: </label>
         <input type="text" name="artistName" id="artistName"><br>
         <p class="error"><?=$artistNameErr?></p><br>

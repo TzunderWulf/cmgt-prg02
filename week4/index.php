@@ -51,6 +51,7 @@
         <th>Genre(s)</th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -66,6 +67,7 @@
             <td><?php print_r($row['genre']);?></td>
             <td><a href="detail.php?index=<?=$row['id']?>">Details</a></td>
             <td><a href="edit.php?index=<?=$row['id']?>">Edit</a></td>
+            <td><a href="delete.php?index=<?=$row['id']?>">Delete</a></td>
         </tr>
     <?php } ?>
     </tbody>

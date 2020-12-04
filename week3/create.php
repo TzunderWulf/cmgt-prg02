@@ -1,10 +1,12 @@
 <?php
+require 'includes/connect.php';
 // PHP validation
 // variables
 $artistName = '';
 $albumName = '';
 $releaseYear = '';
 $amountTracks = '';
+$genre = '';
 
 // error messages
 $artistNameErr = "";
@@ -38,9 +40,7 @@ if (isset($_POST['submit'])) {
     } else {
         $amountTracks = $_POST['amountTracks'];
     }
-    if ($validForm) {
-        header('Location: index.php');
-    }
+    $genre = $_POST['genre'];
 }
 
 $currentDateTime = date('d-m-y h:i A');
@@ -58,7 +58,7 @@ $currentDateTime = date('d-m-y h:i A');
     <h2>Create</h2>
     <h3>* is required.</h3>
 
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <form action="" method="post">
         <label for="artistName">Artist name*: </label>
         <input type="text" name="artistName" id="artistName"><br>
         <p class="error"><?=$artistNameErr?></p><br>
