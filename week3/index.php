@@ -57,8 +57,8 @@
     <?php foreach ($result as $row) { ?>
         <tr>
             <td><?php print_r($row['id']);?></td>
-            <td class="image"><img src="data:image/png;base64,<?=base64_encode($row['albumCover']);?>"
-                 alt="albumCover"></td>
+            <td class="image"><img src="<?=$row['albumCover'];?>"
+                 alt="<?php print_r($row['albumName']);?>"></td>
             <td><?php print_r($row['artist']);?></td>
             <td><?php print_r($row['albumName']);?></td>
             <td><?php print_r($row['year']);?></td>

@@ -35,8 +35,8 @@ $currentDateTime = date('d-m-y h:i A');
 <h4><?php echo $currentDateTime; ?></h4>
 <h2><?php print_r($row['albumName']); ?> by <?php print_r($row['artist']); ?></h2>
 
-<img class="detailImage ¶" src="data:image/png;base64,<?= base64_encode($row['albumCover']); ?>"
-     alt="albumCover">
+<img class="detailImage ¶" src="<?=$row['albumCover'];?>"
+     alt="<?php print_r($row['albumName']);?>">
 
 <ul>
     <li>Amount of tracks: <?php print_r($row['tracks']); ?></li>
