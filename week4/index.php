@@ -21,7 +21,7 @@
 
 <html lang="en">
 <head>
-    <title>Week 3</title>
+    <title>Week 4</title>
     <link rel="stylesheet" href="stylesheets/stylesheet.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
@@ -32,8 +32,8 @@
     <h2>Albums</h2>
     <p>Continuation of the last two assignment with the albums. The new additions are:</p>
     <ul>
-        <li>Database</li>
-        <li>An alternative view</li>
+        <li>You can now add entry's into the database with the create form</li>
+        <li>You can also delete entry's</li>
     </ul>
 
     <a href="alternativeIndex.php">Alternative</a>
@@ -51,6 +51,7 @@
         <th>Genre(s)</th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -66,6 +67,7 @@
             <td><?php print_r($row['genre']);?></td>
             <td><a href="detail.php?index=<?=$row['id']?>">Details</a></td>
             <td><a href="edit.php?index=<?=$row['id']?>">Edit</a></td>
+            <td><a href="delete.php?index=<?=$row['id']?>">Delete</a></td>
         </tr>
     <?php } ?>
     </tbody>

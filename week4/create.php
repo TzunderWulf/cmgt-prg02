@@ -2,17 +2,10 @@
 require 'includes/connect.php';
 // PHP validation
 // variables
-$artistName = '';
-$albumName = '';
-$releaseYear = '';
-$amountTracks = '';
-$genre = '';
+$artistName = $albumName = $releaseYear = $amountTracks = $genre = $albumCover = '';
 
 // error messages
-$artistNameErr = "";
-$albumNameErr = "";
-$amountTracksErr = "";
-$releaseYearErr = "";
+$artistNameErr = $albumNameErr = $amountTracksErr = $releaseYearErr = $albumCoverErr = "";
 
 if (isset($_POST['submit'])) {
     $validForm = true;
@@ -40,6 +33,12 @@ if (isset($_POST['submit'])) {
     } else {
         $amountTracks = htmlspecialchars($_POST['amountTracks']);
     }
+    if (!isset($_POST['albumCover']) || $_POST['albumCover'] === '') {
+        $albumCoverErr = "Link to album is required.";
+    } else {
+        $albumCover = htmlspecialchars($_POST['albumCover']);
+    }
+
     if ($validForm) {
         header('Location: index.php');
     }
@@ -47,13 +46,14 @@ if (isset($_POST['submit'])) {
 
     if ($validForm) {
         // header('Location: index.php');
-        $sql = sprintf("INSERT INTO albums (albumName, artist, year, tracks, genre) VALUES (
-            '%s', '%s', '%s', '%s', '%s')",
+        $sql = sprintf("INSERT INTO albums (albumName, artist, year, tracks, genre, albumCover) VALUES (
+            '%s', '%s', '%s', '%s', '%s', '%s')",
             $db->real_escape_string($artistName),
             $db->real_escape_string($albumName),
             $db->real_escape_string($releaseYear),
             $db->real_escape_string($amountTracks),
-            $db->real_escape_string($genre)
+            $db->real_escape_string($genre),
+            $db->real_escape_string($albumCover)
         );
         $db->query($sql);
         $db->close();
@@ -76,27 +76,45 @@ $currentDateTime = date('d-m-y h:i A');
     <h3>* is required.</h3>
 
     <form action="" method="post">
-        <label for="artistName">Artist name*: </label>
-        <input type="text" name="artistName" id="artistName"><br>
-        <p class="error"><?=$artistNameErr?></p><br>
+        <div>
+            <label for="artistName">Artist name*: </label>
+            <input type="text" name="artistName" id="artistName"><br>
+            <p class="error"><?=$artistNameErr?></p><br>
+        </div>
 
-        <label for="albumName">Album name*: </label>
-        <input type="text" name="albumName" id="albumName"><br>
-        <p class="error"><?=$artistNameErr?></p><br>
+        <div>
+            <label for="albumName">Album name*: </label>
+            <input type="text" name="albumName" id="albumName"><br>
+            <p class="error"><?=$artistNameErr?></p><br>
+        </div>
 
-        <label for="releaseYear">Release year*: </label>
-        <input type="text" name="releaseYear" id="releaseYear"><br>
-        <p class="error"><?=$releaseYearErr?></p><br>
+        <div>
+            <label for="releaseYear">Release year*: </label>
+            <input type="text" name="releaseYear" id="releaseYear"><br>
+            <p class="error"><?=$releaseYearErr?></p><br>
+        </div>
 
-        <label for="amountTracks">Amount of tracks in the album*: </label>
-        <input type="number" name="amountTracks" id="amountTracks"><br>
-        <p class="error"><?=$amountTracksErr?></p><br>
+        <div>
+            <label for="amountTracks">Amount of tracks in the album*: </label>
+            <input type="number" name="amountTracks" id="amountTracks"><br>
+            <p class="error"><?=$amountTracksErr?></p>
+        </div>
 
-        <label for="genre">Genre(s): </label>
-        <input type="text" name="genre" id="genre"><br>
+        <div>
+            <label for="genre">Genre(s): </label>
+            <input type="text" name="genre" id="genre">
+        </div>
 
-        <input type="submit" name="submit">
-        <input type="reset" name="reset">
+        <div>
+            <label for="albumcover">Path to album cover*: </label>
+            <input type="text" name="albumcover" id="albumcover">
+            <p class="error"><?=$albumCoverErr?></p>
+        </div>
+
+        <div>
+            <input type="submit" name="submit">
+            <input type="reset" name="reset">
+        </div>
 
     </form>
 
