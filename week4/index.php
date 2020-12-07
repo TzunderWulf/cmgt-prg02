@@ -51,15 +51,14 @@
         <th>Genre(s)</th>
         <th></th>
         <th></th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
     <?php foreach ($result as $row) { ?>
         <tr>
             <td><?php print_r($row['id']);?></td>
-            <td class="image"><img src="data:image/png;base64,<?=base64_encode($row['albumCover']);?>"
-                 alt="albumCover"></td>
+            <td class="image"><img src="<?=$row['albumCover'];?>"
+                 alt="<?php print_r($row['albumName']);?>"></td>
             <td><?php print_r($row['artist']);?></td>
             <td><?php print_r($row['albumName']);?></td>
             <td><?php print_r($row['year']);?></td>
@@ -67,7 +66,6 @@
             <td><?php print_r($row['genre']);?></td>
             <td><a href="detail.php?index=<?=$row['id']?>">Details</a></td>
             <td><a href="edit.php?index=<?=$row['id']?>">Edit</a></td>
-            <td><a href="delete.php?index=<?=$row['id']?>">Delete</a></td>
         </tr>
     <?php } ?>
     </tbody>
