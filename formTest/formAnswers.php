@@ -17,6 +17,14 @@
         $data = htmlspecialchars($data);
         return $data;
     }
+
+
+$sentence = '0612345678';
+$string = '-';
+$position = '2';
+
+echo substr_replace($sentence, $string, 2, 0);
+
 ?>
 
 <html>
