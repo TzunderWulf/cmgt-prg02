@@ -1,0 +1,41 @@
+html {
+    background-color: #9dbabe;
+}
+
+body {
+    width: 900px;
+    margin: auto auto;
+    background-color: white;
+    padding: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+label {
+    width: 60px;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+input {
+    background-color: white;
+    width: 200px;
+    border: 2px solid black;
+    padding: 5px 5px;
+    margin: 5px;
+}
+
+#loginform {
+    margin: 0 auto;
+    max-width: 460px;
+    padding: 5px;
+}
+
+input[type=submit] {
+    float: right;
+}
+
+p.error {
+    color: red;
+    display: inline-block;
+    padding: 5px 20px;
+}
