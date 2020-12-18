@@ -48,7 +48,7 @@ $currentDateTime = date('d-m-y h:i A');
             <album>
                 <div class="cover">
                     <a href="detail.php?index=<?=$row['id']?>">
-                        <img src="<?=$row['albumCover'];?>" alt="<?=$row['albumCover'];?>"/>
+                        <img src="<?=$row['cover'];?>" alt="<?=$row['albumCover'];?>"/>
                     </a>
                 </div>
                 <div class="links">

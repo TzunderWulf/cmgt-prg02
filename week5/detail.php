@@ -33,10 +33,10 @@ $currentDateTime = date('d-m-y h:i A');
 </head>
 <body>
 <h4><?php echo $currentDateTime; ?></h4>
-<h2><?php print_r($row['albumName']); ?> by <?php print_r($row['artist']); ?></h2>
+<h2><?php print_r($row['album']); ?> by <?php print_r($row['artist']); ?></h2>
 
-<img class="detailImage ¶" src="<?=$row['albumCover'];?>"
-     alt="<?php print_r($row['albumName']);?>">
+<img class="detailImage ¶" src="<?=$row['cover'];?>"
+     alt="<?php print_r($row['album']);?>">
 
 <ul>
     <li>Amount of tracks: <?php print_r($row['tracks']); ?></li>

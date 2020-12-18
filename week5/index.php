@@ -58,10 +58,10 @@
     <?php foreach ($result as $row) { ?>
         <tr>
             <td><?php print_r($row['id']);?></td>
-            <td class="image"><img src="<?=$row['albumCover'];?>"
-                 alt="<?php print_r($row['albumName']);?>"></td>
+            <td class="image"><img src="<?=$row['cover'];?>"
+                 alt="<?php print_r($row['album']);?>"></td>
             <td><?php print_r($row['artist']);?></td>
-            <td><?php print_r($row['albumName']);?></td>
+            <td><?php print_r($row['album']);?></td>
             <td><?php print_r($row['year']);?></td>
             <td><?php print_r($row['tracks']);?></td>
             <td><?php print_r($row['genre']);?></td>
