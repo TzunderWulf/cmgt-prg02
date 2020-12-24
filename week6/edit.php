@@ -1,5 +1,5 @@
 <?php
-require_once('includes/connect.php'); // to connect to database
+require_once('includes/config.php'); // to connect to database
 
 $indexNumber = $_GET['index'];
 

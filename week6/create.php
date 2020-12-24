@@ -1,5 +1,5 @@
 <?php
-require 'includes/connect.php';
+require 'includes/config.php';
 // PHP validation
 // variables
 $artistName = $albumName = $releaseYear = $amountTracks = $genre = $albumCover = '';

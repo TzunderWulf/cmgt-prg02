@@ -1,5 +1,5 @@
 <?php
-require_once('includes/connect.php');
+require_once('includes/config.php');
 
 $indexNumber = $_GET['index'];
 

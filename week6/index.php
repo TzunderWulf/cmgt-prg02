@@ -1,5 +1,5 @@
 <?php
-    require_once('includes/connect.php');
+    require_once('includes/config.php');
 
     // get the result set from the database with query
     $query = "SELECT * FROM albums";

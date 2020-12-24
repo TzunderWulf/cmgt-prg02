@@ -1,7 +1,7 @@
 <?php
     // contains array of music
     require_once('includes/musicInclude.php');
-    require_once('includes/connect.php');
+    require_once('includes/config.php');
 
     if (isset($_GET['index']) && ctype_digit($_GET['index'])) {
         $indexNumber = $_GET['index'];
