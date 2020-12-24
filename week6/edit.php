@@ -134,6 +134,6 @@ $currentDateTime = date('d-m-y h:i A');
     </form>
 
     <a href="index.php">Back</a><br>
-    <a href="alternativeIndex.php">Back to alternative view</a>
+    <a href="alternative-index.php">Back to alternative view</a>
 </body>
 </html>

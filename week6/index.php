@@ -1,5 +1,4 @@
 <?php
-    require_once('includes/musicInclude.php');
     require_once('includes/connect.php');
 
     // get the result set from the database with query
@@ -14,7 +13,7 @@
     }
 
     // close connection
-    $db->close();
+    mysqli_close($db);
 
     $currentDateTime = date('d-m-y h:i A');
 ?>
@@ -36,7 +35,7 @@
         <li>You can also delete entry's</li>
     </ul>
 
-    <a href="alternativeIndex.php">Alternative</a>
+    <a href="alternative-index.php">Alternative</a>
     <a id="create" href="create.php">Create a new album</a>
 
 <table>

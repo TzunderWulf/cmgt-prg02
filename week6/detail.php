@@ -1,6 +1,4 @@
 <?php
-# contains array of music
-require_once('includes/musicInclude.php');
 require_once('includes/connect.php');
 
 $indexNumber = $_GET['index'];
@@ -19,7 +17,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 // close connection
-$db->close();
+mysqli_close($db);
 
 $currentDateTime = date('d-m-y h:i A');
 ?>
@@ -45,7 +43,7 @@ $currentDateTime = date('d-m-y h:i A');
 </ul>
 
 <a href="index.php">Back</a><br>
-<a href="alternativeIndex.php">Back to alternative view</a>
+<a href="alternative-index.php">Back to alternative view</a>
 </body>
 </html>
 

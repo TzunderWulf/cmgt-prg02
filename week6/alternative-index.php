@@ -1,5 +1,4 @@
 <?php
-require_once('includes/musicInclude.php');
 require_once('includes/connect.php');
 
 // get the result set from the database with query
@@ -14,7 +13,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 // close connection
-$db->close();
+mysqli_close($db);
 
 $currentDateTime = date('d-m-y h:i A');
 ?>
